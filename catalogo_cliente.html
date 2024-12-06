@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Produtos - MS Distribuidora</title>
+    <style>
+        /* Estilo geral */
+        body {
+            background-color: #add8e6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        header img {
+            max-height: 150px; /* Destacando a logo */
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .product-list {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Estilo responsivo */
+        @media (max-width: 768px) {
+            header img {
+                max-height: 120px; /* Ajustado para telas menores */
+            }
+
+            .product-list {
+                width: 90%;
+            }
+
+            th, td {
+                font-size: 14px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header img {
+                max-height: 100px; /* Ajustado para dispositivos muito pequenos */
+            }
+
+            th, td {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo MS Distribuidora">
+        <h1>Catálogo de Produtos</h1>
+    </header>
+    <main>
+        <section class="product-list">
+            <h2>Produtos Disponíveis</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list"></tbody>
+            </table>
+        </section>
+    </main>
+    <script>
+        const apiBaseUrl = 'http://localhost:3000/api/produtos'; // Ajuste para sua API real
+
+        // Carregar produtos ao abrir a página
+        window.onload = () => carregarProdutos();
+
+        function carregarProdutos() {
+            const lista = document.getElementById('product-list');
+            lista.innerHTML = '<tr><td colspan="3">Carregando...</td></tr>';
+            
+            fetch(apiBaseUrl)
+                .then(response => response.json())
+                .then(produtos => {
+                    lista.innerHTML = '';
+                    produtos.forEach(produto => {
+                        lista.innerHTML += `
+                            <tr>
+                                <td>${produto.nome}</td>
+                                <td>R$ ${produto.preco.toFixed(2)}</td>
+                                <td>${produto.descricao}</td>
+                            </tr>
+                        `;
+                    });
+                })
+                .catch(err => {
+                    console.error(err);
+                    lista.innerHTML = '<tr><td colspan="3">Erro ao carregar os produtos.</td></tr>';
+                });
+        }
+    </script>
+</body>
+</html>
