@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - MS Distribuidora</title>
+    <style>
+        body {
+            background-color: #add8e6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+        header img {
+            max-height: 100px;
+        }
+        main {
+            padding: 20px;
+        }
+        .product-form, .product-list {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+        .product-form input, .product-form button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo MS Distribuidora">
+        <h1>Catálogo de Produtos</h1>
+    </header>
+    <main>
+        <section class="product-form">
+            <h2>Cadastrar Produto</h2>
+            <input type="text" id="nome" placeholder="Nome do Produto">
+            <input type="number" id="preco" placeholder="Preço do Produto">
+            <textarea id="descricao" placeholder="Descrição"></textarea>
+            <button onclick="adicionarProduto()">Cadastrar</button>
+        </section>
+        <section class="product-list">
+            <h2>Produtos Cadastrados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list"></tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
