@@ -19,7 +19,7 @@
         }
 
         header img {
-            max-height: 150px; /* Aumentado para destacar mais a logo */
+            max-height: 150px;
         }
 
         main {
@@ -54,6 +54,10 @@
             text-align: left;
         }
 
+        img.product-img {
+            max-height: 100px;
+        }
+
         .view-catalog-btn {
             display: block;
             margin: 20px auto;
@@ -79,7 +83,7 @@
         /* Estilo responsivo */
         @media (max-width: 768px) {
             header img {
-                max-height: 120px; /* Ajustado para telas menores */
+                max-height: 120px;
             }
 
             .product-form, .product-list, .view-catalog-btn {
@@ -97,7 +101,7 @@
 
         @media (max-width: 480px) {
             header img {
-                max-height: 100px; /* Ajustado para dispositivos muito pequenos */
+                max-height: 100px;
             }
 
             .product-form input, .product-form button, .product-form textarea {
@@ -122,6 +126,8 @@
             <input type="text" id="nome" placeholder="Nome do Produto">
             <input type="number" id="preco" placeholder="Preço do Produto">
             <textarea id="descricao" placeholder="Descrição"></textarea>
+            <label for="imagem">Imagem do Produto:</label>
+            <input type="file" id="imagem" accept="image/*">
             <button onclick="adicionarProduto()">Cadastrar</button>
         </section>
         <section class="product-list">
@@ -131,6 +137,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>Preço</th>
+                        <th>Imagem</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
