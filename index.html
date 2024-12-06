@@ -4,7 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - MS Distribuidora</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo geral */
+        body {
+            background-color: #add8e6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        header img {
+            max-height: 150px; /* Aumentado para destacar mais a logo */
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .product-form, .product-list {
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .product-form input, .product-form button, .product-form textarea {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Estilo responsivo */
+        @media (max-width: 768px) {
+            header img {
+                max-height: 120px; /* Ajustado para telas menores */
+            }
+
+            .product-form, .product-list {
+                width: 90%;
+            }
+
+            th, td {
+                font-size: 14px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header img {
+                max-height: 100px; /* Ajustado para dispositivos muito pequenos */
+            }
+
+            .product-form input, .product-form button, .product-form textarea {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            th, td {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
