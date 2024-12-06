@@ -4,10 +4,12 @@ const apiBaseUrl = 'http://localhost:3000/api/produtos'; // Ajuste para sua API 
 window.onload = () => carregarProdutos();
 
 function carregarProdutos() {
+    const lista = document.getElementById('product-list');
+    lista.innerHTML = '<tr><td colspan="3">Carregando...</td></tr>';
+    
     fetch(apiBaseUrl)
         .then(response => response.json())
         .then(produtos => {
-            const lista = document.getElementById('product-list');
             lista.innerHTML = '';
             produtos.forEach(produto => {
                 lista.innerHTML += `
@@ -22,7 +24,10 @@ function carregarProdutos() {
                 `;
             });
         })
-        .catch(err => console.error(err));
+        .catch(err => {
+            console.error(err);
+            lista.innerHTML = '<tr><td colspan="3">Erro ao carregar os produtos.</td></tr>';
+        });
 }
 
 function adicionarProduto() {
