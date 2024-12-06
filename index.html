@@ -54,13 +54,35 @@
             text-align: left;
         }
 
+        .view-catalog-btn {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .view-catalog-btn button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .view-catalog-btn button:hover {
+            background-color: #0056b3;
+        }
+
         /* Estilo responsivo */
         @media (max-width: 768px) {
             header img {
                 max-height: 120px; /* Ajustado para telas menores */
             }
 
-            .product-form, .product-list {
+            .product-form, .product-list, .view-catalog-btn {
                 width: 90%;
             }
 
@@ -114,6 +136,9 @@
                 </thead>
                 <tbody id="product-list"></tbody>
             </table>
+        </section>
+        <section class="view-catalog-btn">
+            <button onclick="window.location.href='catalogo_cliente.html'">Ver Catálogo</button>
         </section>
     </main>
     <script src="script.js"></script>
